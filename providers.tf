@@ -2,6 +2,7 @@ terraform {
   required_providers {
     snowflake = {
       source = "snowflakedb/snowflake"
+      version = ">= 2.20.0"
     }
     github = {
       source  = "integrations/github"
