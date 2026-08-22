@@ -1,8 +1,8 @@
 
-# resource "snowflake_database" "Databases" {
-#   provider = snowflake.SYSADMIN
-#   name = var.DatabaseName
-# }
+resource "snowflake_database" "Databases" {
+  provider = snowflake.SYSADMIN
+  name = var.DatabaseName
+}
 
 resource "github_branch" "GitHub_Prod_Branch" {
   repository = "Learn_Terraform"
