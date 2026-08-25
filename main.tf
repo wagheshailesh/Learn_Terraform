@@ -1,8 +1,8 @@
 
-resource "snowflake_database" "Databases" {
-  provider = snowflake.SYSADMIN
-  name = var.DatabaseName
-}
+# resource "snowflake_database" "Databases" {
+#   provider = snowflake.SYSADMIN
+#   name = var.DatabaseName
+# }
 
 resource "github_branch" "GitHub_Prod_Branch" {
   repository = "Learn_Terraform"
@@ -22,7 +22,7 @@ resource "snowflake_account_role" "Super_clinic_analyst" {
   comment = "THIS role will have all the access of all the databases of Snowflake account"
 }
 
-resource "snowflake_account_role" "super_clinic_Engineer" {
+resource "snowflake_account_role" "Super_clinic_Engineer" {
   provider = snowflake.SECURITYADMIN
   name    = "SUPER_CLINIC_ENGINEER"
   comment = "THIS role will have all the access of all the databases of Snowflake account"

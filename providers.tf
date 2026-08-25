@@ -33,6 +33,7 @@ provider "snowflake" {
   private_key            = file("D:/TERRAFORM PRIVATE KEYS/rsa_key.p8")
   private_key_passphrase = var.Snowflake_password_value
   role = "SYSADMIN"
+  preview_features_enabled = ["snowflake_table_resource"]
 }
 provider "snowflake" {
   alias = "USERADMIN"
@@ -43,6 +44,16 @@ provider "snowflake" {
   private_key            = file("D:/TERRAFORM PRIVATE KEYS/rsa_key.p8")
   private_key_passphrase = var.Snowflake_password_value
   role = "USERADMIN"
+}
+provider "snowflake" {
+  alias = "ACCOUNTADMIN"
+  organization_name      = var.Snowflake_organisation_name # required if not using profile. Can also be set via SNOWFLAKE_ORGANIZATION_NAME env var
+  account_name           = var.Snowflake_account_name # required if not using profile. Can also be set via SNOWFLAKE_ACCOUNT_NAME env var
+  user                   = "SVC_TERRAFORM" # required if not using profile or token. Can also be set via SNOWFLAKE_USER env var
+  authenticator          = "SNOWFLAKE_JWT"
+  private_key            = file("D:/TERRAFORM PRIVATE KEYS/rsa_key.p8")
+  private_key_passphrase = var.Snowflake_password_value
+  role = "ACCOUNTADMIN"
 }
 
 provider "github" {

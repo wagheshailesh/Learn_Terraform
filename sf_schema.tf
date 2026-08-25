@@ -35,6 +35,19 @@ locals {
   db_schema_pairs = {
     for pair in local.Flattened_database_to_schema_pairs : "${pair.database_key}_${pair.schema_key}" => pair
   }
+
+  /*
+  Output:
+  {
+    "TEST__FINANACE_SCHEMA" = { database_key = "TEST_", schema_key = "FINANACE_SCHEMA" }
+    "TEST__SALES_SCHEMA" = { database_key = "TEST_", schema_key = "SALES_SCHEMA" }
+    "TEST__LANDING_SCHEMA" = { database_key = "TEST_", schema_key = "LANDING_SCHEMA" }
+    "TEST__ROW_SCHEMA" = { database_key = "TEST_", schema_key = "ROW_SCHEMA" }
+    "TEST__CURATED_SCHEMA" = { database_key = "TEST_", schema_key = "CURATED_SCHEMA" }
+    "TEST__TRANSFORMATION_SCHEMA" = { database_key = "TEST_", schema_key = "TRANSFORMATION_SCHEMA" }
+    "TEST__REPORTING_SCHEMA" = { database_key = "TEST_", schema_key = "REPORTING_SCHEMA" }
+  }
+  */
 }
 
 resource "time_sleep" "wait_for_databases" {
